@@ -3,9 +3,9 @@ from .models import Products
 
 class ProductsAdmin(admin.ModelAdmin):
 
-    list_display = ['name','price', 'size', 'in_stock']
+    list_display = ['nome','price', 'size', 'in_stock']
     list_filter = ['in_stock']
     list_editable = ['size']
-    search_fields = ['name']
+    search_fields = ['nome']
 
 admin.site.register(Products, ProductsAdmin)
