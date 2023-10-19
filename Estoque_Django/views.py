@@ -4,7 +4,8 @@ from .models import Products
 def index(request):
     # from Products select *
     produtos = Products.objects.all()
-    print(produtos)
-    return render(request, 'pages/index.html')
+    # print(produtos)
 
-# Create your views here.
+    for produto in produtos:
+        print(f'produto.nome + produto.price')
+    return render(request, 'pages/index.html', {'produtos':produtos})

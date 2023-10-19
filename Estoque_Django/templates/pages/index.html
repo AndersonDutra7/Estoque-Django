@@ -1,1 +1,41 @@
-teste
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camisas Grêmio</title>
+    <link rel="stylesheet" href="{% static 'css/global.css' %}">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="navbar-logo">
+                <h1>Estoque_Django<h1>
+            </div>
+            <div class="navbar-busca">
+                    <input type="text" placeholder="Pesquisar...">
+                    <button type="submit">Buscar</button>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <table class="table" border="9">
+            {% for produto in produtos %}
+            <tr>
+                    <td>Produto: {{produto.nome}}</td>
+                    <td>Preço: {{produto.price}}</td>
+                    <td>Estoque: {{produto.qtd}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </main>
+
+    <script>
+        console.log(`{{ produtos }}`);
+    </script>
+
+</body>
+</html>
