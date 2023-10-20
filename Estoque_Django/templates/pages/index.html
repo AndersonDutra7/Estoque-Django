@@ -25,7 +25,7 @@
         <table class="table" border="9">
             {% for produto in produtos %}
             <tr>
-                    <td>Produto: {{produto.nome}}</td>
+                    <td>Produto: <a href="{% url 'product-detail' produto.id %}">{{produto.name}}</a></td>
                     <td>Preço: {{produto.price}}</td>
                     <td>Estoque: {{produto.qtd}}</td>
             </tr>
