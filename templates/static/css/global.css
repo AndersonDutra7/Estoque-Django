@@ -71,27 +71,32 @@ main{
 }
 
 .tabela-produtos-detalhes {
-    border-collapse: separate;
+    /* border-collapse: separate; */
+    background-color: black;
+    display: block;
 }
 
-.tabela-produtos-detalhes thead th {
-    background-color: #333;
+.tabela-produtos-detalhes > thead > tr > td {
+    /* background-color: #333;
     color: white;
     padding: 10px;
     font-weight: bold;
     font-size: 24px;
+    background-color: yellow; */
 }
 
 .tabela-produtos-detalhes tbody td {
     border-bottom: 1px solid #ccc;
     padding: 10px;
     font-size: 20px;
-    display: flex;
-    flex-direction: column;
+    background-color: yellow;
+    /* display: flex; */
+    /* flex-direction: column; */
 }
 
 .tabela-produtos-detalhes tbody tr td {
     margin: 5px;
+    background-color: aqua;
 }
 
 .footer{

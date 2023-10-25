@@ -27,41 +27,24 @@
             <table class="tabela-produtos-detalhes">
                 <thead>
                     <tr>
-                        <th class="tabela-th">Descrição</th>
-                        <tbody>
-                            <tr>
-                                {% for produto in produtos %}
-                                <td><a href="{% url 'product-detail' produto.id %}">{{produto.name}}</a></td>
-                        <th class="tabela-th">Categoria</th>
-                            <td>{{produto.Categoria}}</td>
-                        <th class="tabela-th">Estoque</th>
-                            <td>{{produto.qtd}}</td>
-                        <th class="tabela-th">Preço</th>
-                            <td>R$ {{produto.price}}</td>
-                        {% endfor %}
+                        <th scope="col" class="tabela-th">Descrição</th>
+                        <th scope="col" class="tabela-th">Categoria</th>
+                        <th scope="col" class="tabela-th">Estoque</th>
+                        <th scope="col" class="tabela-th">Preço</th>
                     </tr>
                 </thead>
-                <!-- <tbody>
+                <tbody>
                     <tr>
                         {% for produto in produtos %}
                         <td><a href="{% url 'product-detail' produto.id %}">{{produto.name}}</a></td>
-                        <td>{{produto.Categoria}}</td>
+                        <td>{{produto.category}}</td>
                         <td>{{produto.qtd}}</td>
                         <td>R$ {{produto.price}}</td>
                         {% endfor %}
                     </tr>
-                </tbody>     -->
+                </tbody>    
             </table>
         </section>
-        <!-- <table class="table">
-            {% for produto in produtos %}
-            <tr>
-                    <td>Produto: <a href="{% url 'product-detail' produto.id %}">{{produto.name}}</a></td>
-                    <td>Preço: {{produto.price}}</td>
-                    <td>Estoque: {{produto.qtd}}</td>
-            </tr>
-            {% endfor %}
-        </table> -->
     </main>
     <footer class="footer">
         <img src="../../../media/ralph-rosto.png" alt="Ralph">
