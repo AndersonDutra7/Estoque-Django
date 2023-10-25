@@ -22,7 +22,38 @@
         </nav>
     </header>
     <main>
-        <table class="table" border="9">
+        <section class="tabela-produtos">
+            <h2>Tabela de Produtos</h2>
+            <table class="tabela-produtos-detalhes">
+                <thead>
+                    <tr>
+                        <th class="tabela-th">Descrição</th>
+                        <tbody>
+                            <tr>
+                                {% for produto in produtos %}
+                                <td><a href="{% url 'product-detail' produto.id %}">{{produto.name}}</a></td>
+                        <th class="tabela-th">Categoria</th>
+                            <td>{{produto.Categoria}}</td>
+                        <th class="tabela-th">Estoque</th>
+                            <td>{{produto.qtd}}</td>
+                        <th class="tabela-th">Preço</th>
+                            <td>R$ {{produto.price}}</td>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <!-- <tbody>
+                    <tr>
+                        {% for produto in produtos %}
+                        <td><a href="{% url 'product-detail' produto.id %}">{{produto.name}}</a></td>
+                        <td>{{produto.Categoria}}</td>
+                        <td>{{produto.qtd}}</td>
+                        <td>R$ {{produto.price}}</td>
+                        {% endfor %}
+                    </tr>
+                </tbody>     -->
+            </table>
+        </section>
+        <!-- <table class="table">
             {% for produto in produtos %}
             <tr>
                     <td>Produto: <a href="{% url 'product-detail' produto.id %}">{{produto.name}}</a></td>
@@ -30,8 +61,13 @@
                     <td>Estoque: {{produto.qtd}}</td>
             </tr>
             {% endfor %}
-        </table>
+        </table> -->
     </main>
+    <footer class="footer">
+        <img src="../../../media/ralph-rosto.png" alt="Ralph">
+        <p>Created by Anderson Dutra</p>
+        <img src="../../../media/teddy-rosto.png" alt="Teddy">
+    </footer>
 
     <script>
         console.log(`{{ produtos }}`);
