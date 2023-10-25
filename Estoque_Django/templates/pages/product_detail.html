@@ -1,4 +1,45 @@
-<h1>{{ product.name }}</h1>
-<h1>{{ product.price }}</h1>
-<h1>{{ product.category }}</h1>
-<img src="{{ product.picture.url}}" alt="">
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cards Grêmio</title>
+    <link rel="stylesheet" href="{% static 'css/global.css' %}">
+    <link rel="stylesheet" href="{% static 'css/global-card.css' %}">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="navbar-logo">
+                <h1>Estoque_Django<h1>
+            </div>
+            <div class="navbar-busca">
+                    <input type="text" placeholder="Pesquisar...">
+                    <button type="submit">Buscar</button>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="card">
+            <img src="{{ product.picture.url}}" alt="Camisa Grêmio">
+            <div class="card-content">
+                <h2>{{ product.name }}</h2>
+                <p>R$ {{ product.price }}</p>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <img src="../../../media/ralph-rosto.png" alt="Ralph">
+        <p>Created by Anderson Dutra</p>
+        <img src="../../../media/teddy-rosto.png" alt="Teddy">
+    </footer>
+
+    <script>
+        console.log(`{{ produtos }}`);
+    </script>
+
+</body>
+</html>

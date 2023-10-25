@@ -27,21 +27,21 @@
             <table class="tabela-produtos-detalhes">
                 <thead>
                     <tr>
-                        <th scope="col" class="tabela-th">Descrição</th>
-                        <th scope="col" class="tabela-th">Categoria</th>
-                        <th scope="col" class="tabela-th">Estoque</th>
-                        <th scope="col" class="tabela-th">Preço</th>
+                        <th class="tabela-th">Descrição</th>
+                        <th class="tabela-th">Categoria</th>
+                        <th class="tabela-th">Estoque</th>
+                        <th class="tabela-th">Preço</th>
                     </tr>
                 </thead>
                 <tbody>
+                    {% for produto in produtos %}
                     <tr>
-                        {% for produto in produtos %}
-                        <td><a href="{% url 'product-detail' produto.id %}">{{produto.name}}</a></td>
-                        <td>{{produto.category}}</td>
-                        <td>{{produto.qtd}}</td>
-                        <td>R$ {{produto.price}}</td>
-                        {% endfor %}
+                        <td class="tabela-td"><a href="{% url 'product-detail' produto.id %}">{{produto.name}}</a></td>
+                        <td class="tabela-td">{{produto.category}}</td>
+                        <td class="tabela-td">{{produto.qtd}}</td>
+                        <td class="tabela-td">R$ {{produto.price}}</td>
                     </tr>
+                    {% endfor %}
                 </tbody>    
             </table>
         </section>
