@@ -39,8 +39,8 @@
             </div>
             <div class="buttons-add-product">
                 <button type="submit">Salvar</button>
-                <button type="submit">Cancelar</button>
-                <button type="submit">Voltar</button>    
+                <button type="submit" formaction="{% url 'add-product' %}"">Cancelar</button>
+                <button type="submit" formaction="{% url 'home' %}">Voltar</button>    
             </div>
         </form>
     </main>
