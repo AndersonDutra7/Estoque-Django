@@ -1,0 +1,47 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+}
+
+input{
+    padding: 10px;
+    border-radius: 10px;
+    margin-right: 50px;
+    width: 400px;
+}
+
+.file-input{
+    padding: 10px;
+    border-radius: 10px;
+    margin-right: 50px;
+    width: 400px;
+}
+
+button{
+    font-size: 26px;
+    padding: 10px;
+    background-color: rgb(39, 39, 129);
+    border-radius: 10px;
+    border: solid black;
+    border-radius: 10px;
+    width: 100px;
+}
+
+select{
+    padding: 10px;
+    border-radius: 10px;
+    margin-right: 50px;
+    width: 400px;
+}
+
+/* form > a{
+    text-align: center;
+} */

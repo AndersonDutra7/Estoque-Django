@@ -18,7 +18,6 @@
             </div>
             <div class="navbar-busca">
                     <input type="text" placeholder="Pesquisar...">
-                    <button type="submit">Buscar</button>
             </div>
         </nav>
     </header>
@@ -29,6 +28,7 @@
                 <h2>{{ product.name }}</h2>
                 <p>R$ {{ product.price }}</p>
             </div>
+            <a href="{% url 'delete-product' product.id %}" type="submit">Excluir Produto</a>
         </div>
     </main>
     <footer class="footer">

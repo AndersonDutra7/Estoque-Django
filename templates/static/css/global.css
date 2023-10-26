@@ -39,11 +39,12 @@ body{
     margin-right: 50px;
 }
 
-.navbar-busca > button{
+.navbar-busca > a{
     padding: 10px;
     border-radius: 50px;
     background-color: rgb(197, 143, 233);
     font-weight: 900;
+    text-decoration: none;
 }
 
 main{

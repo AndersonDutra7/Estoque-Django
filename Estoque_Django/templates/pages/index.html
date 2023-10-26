@@ -17,7 +17,7 @@
             </div>
             <div class="navbar-busca">
                     <input type="text" placeholder="Pesquisar...">
-                    <button type="submit">Buscar</button>
+                    <a href="{% url 'add_product' %}" type="submit">Add Produto</a>
             </div>
         </nav>
     </header>
@@ -27,6 +27,7 @@
             <table class="tabela-produtos-detalhes">
                 <thead>
                     <tr>
+                        <th class="tabela-th">Código</th>
                         <th class="tabela-th">Descrição</th>
                         <th class="tabela-th">Categoria</th>
                         <th class="tabela-th">Estoque</th>
@@ -36,6 +37,7 @@
                 <tbody>
                     {% for produto in produtos %}
                     <tr>
+                        <td class="tabela-td">{{produto.cod}}</td>
                         <td class="tabela-td"><a href="{% url 'product-detail' produto.id %}">{{produto.name}}</a></td>
                         <td class="tabela-td">{{produto.category}}</td>
                         <td class="tabela-td">{{produto.qtd}}</td>
