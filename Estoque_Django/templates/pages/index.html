@@ -12,18 +12,12 @@
 <body>
     <header>
         <nav class="navbar">
-            <div class="navbar-logo">
-                <h1>Estoque_Django<h1>
-            </div>
-            <div class="navbar-busca">
-                    <input type="text" placeholder="Pesquisar...">
-                    <a href="{% url 'add_product' %}" type="submit">Add Produto</a>
-            </div>
+            <h1>GRÊMIO DJANGO</h1>
         </nav>
     </header>
     <main>
         <section class="tabela-produtos">
-            <h2>Tabela de Produtos</h2>
+            <h2>Produtos Cadastrados</h2>
             <table class="tabela-produtos-detalhes">
                 <thead>
                     <tr>
@@ -46,6 +40,7 @@
                     {% endfor %}
                 </tbody>    
             </table>
+            <a class="add-button" href="{% url 'add_product' %}" type="submit">Add Produto</a>
         </section>
     </main>
     <footer class="footer">

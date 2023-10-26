@@ -13,29 +13,35 @@
 <body>
     <header>
         <nav class="navbar">
-            <div class="navbar-logo">
-                <h1>Estoque_Django<h1>
-            </div>
-            <div class="navbar-busca">
-                    <input type="text" placeholder="Pesquisar...">
-                    <!-- <a type="submit">Add Produto</a> -->
-            </div>
+            <h1>GRÊMIO DJANGO</h1>
         </nav>
     </header>
     <main class="main">
         <form method="POST" action="" enctype="multipart/form-data"> {% csrf_token %}
-            <input type="text" name="name" placeholder="Nome">
-            <select name="category" id="">
-                {% for category in categories %}
-                <option value="{{ category.id }}">{{ category.name }}</option>
-                {% endfor %}
-            </select>
-            <input class="file-input" type="file" name="picture" placeholder="Imagem">
-            <input type="text" name="price" placeholder="Preço">
-            <input type="text" name="description" placeholder="Descrição">
-            <input type="text" name="qtd" placeholder="Quantidade">
-            <input type="text" name="discount" placeholder="Desconto">
-            <button type="submit">Salvar</button>
+            <div class="dados-add-product">
+                <div class="imagem-add-product">
+                    <label for="file-input" class="custom-file-input">Escolher Arquivo</label>
+                    <input type="file" id="file-input" name="imagem" onchange="displayFileName(this)">
+                    <span id="file-name">Nenhum arquivo selecionado</span>
+                    <select name="category" id="">
+                        {% for category in categories %}
+                        <option value="{{ category.id }}">{{ category.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="inputs-add-product">
+                    <input type="text" name="name" placeholder="Nome">
+                    <input type="text" name="price" placeholder="Preço">
+                    <input type="text" name="description" placeholder="Descrição">
+                    <input type="text" name="qtd" placeholder="Quantidade">
+                    <input type="text" name="discount" placeholder="Desconto">    
+                </div>
+            </div>
+            <div class="buttons-add-product">
+                <button type="submit">Salvar</button>
+                <button type="submit">Cancelar</button>
+                <button type="submit">Voltar</button>    
+            </div>
         </form>
     </main>
     <footer class="footer">
@@ -46,7 +52,16 @@
 
     <script>
         console.log(`{{ produtos }}`);
-    </script>
 
+        function displayFileName(input) {
+            const fileNameElement = document.getElementById("file-name");
+            if (input.files.length > 0) {
+                fileNameElement.textContent = input.files[0].name;
+            } else {
+                fileNameElement.textContent = "Nenhum arquivo selecionado";
+            }
+        }
+
+    </script>
 </body>
 </html>

@@ -13,22 +13,24 @@
 <body>
     <header>
         <nav class="navbar">
-            <div class="navbar-logo">
-                <h1>Estoque_Django<h1>
-            </div>
-            <div class="navbar-busca">
-                    <input type="text" placeholder="Pesquisar...">
-            </div>
+            <h1>GRÊMIO DJANGO</h1>
         </nav>
     </header>
     <main>
         <div class="card">
             <img src="{{ product.picture.url}}" alt="Camisa Grêmio">
             <div class="card-content">
-                <h2>{{ product.name }}</h2>
-                <p>R$ {{ product.price }}</p>
+                <h2>Desrição: {{ product.name }}</h2>
+                <p>Código: {{ product.cod }}</p>
+                <p>Categoria: {{ product.category }}</p>
+                <p>Preço: R$ {{ product.price }}</p>
+                <p>Desconto: {{ product.discount }}%</p>
             </div>
-            <a href="{% url 'delete-product' product.id %}" type="submit">Excluir Produto</a>
+        </div>
+        <div>
+            <!-- <a href="{% url 'add_product' product.id %}" type="submit">Editar</a> -->
+            <a href="{% url 'delete-product' product.id %}" type="submit">Excluir</a>
+            <!-- <a href="{% url 'delete-product' product.id %}" type="submit">Voltar</a> -->
         </div>
     </main>
     <footer class="footer">
