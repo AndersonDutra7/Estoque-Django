@@ -67,8 +67,8 @@ def delete_product(request, id):
     return redirect("home")
 
 
-def cancel_product():
-    if request.method == "POST":
-        # Limpar os campos do formulário aqui
-        # Por exemplo, você pode criar um formulário vazio e renderizá-lo novamente
-        return redirect("add-product")
+# def cancel_product():
+# if request.method == "POST":
+# Limpar os campos do formulário aqui
+# Por exemplo, você pode criar um formulário vazio e renderizá-lo novamente
+# return redirect("add-product")
