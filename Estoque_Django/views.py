@@ -14,6 +14,11 @@ def index(request):
         print(f"produto.nome + produto.price")
     return render(request, "pages/index.html", {"produtos": produtos})
 
+def search_product(request):
+    q = request.GET.get('q')
+    produtos = Products.objects.filter(name__icontains=q)
+    return render(request, 'pages/index.html', {'produtos':produtos})
+
 
 def add_product(request):
     if request.method == "POST":
@@ -58,13 +63,19 @@ def add_product(request):
 
 def product_detail(request, id):
     product = Products.objects.get(id=id)
-    # add_product_url = reverse("add_product", args=[id])
     return render(request, "pages/product_detail.html", {"product": product})
 
 
 def delete_product(request, id):
     product = Products.objects.get(id=id).delete()
     return redirect("home")
+
+def sell_product(request, id):
+    product = Products.objects.get(id=id)
+    product.qtd -= 1
+    product.save()
+    return redirect("product-detail, id")
+
 
 
 # def cancel_product():

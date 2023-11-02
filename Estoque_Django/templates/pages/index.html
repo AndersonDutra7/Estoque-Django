@@ -13,6 +13,10 @@
     <header>
         <nav class="navbar">
             <h1>GRÊMIO DJANGO</h1>
+            <form role="search" action="{% url 'search-product' %}">
+                <input type="search" name="q">
+                <button type="submit">Buscar</button>
+            </form>
         </nav>
     </header>
     <main>

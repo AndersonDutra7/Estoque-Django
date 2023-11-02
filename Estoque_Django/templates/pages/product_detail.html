@@ -23,6 +23,7 @@
                 <h2>Desrição: {{ product.name }}</h2>
                 <p>Código: {{ product.cod }}</p>
                 <p>Categoria: {{ product.category }}</p>
+                <p>Estoque: {{ product.qtd }}</p>
                 <p>Preço: R$ {{ product.price }}</p>
                 <p>Desconto: {{ product.discount }}%</p>
             </div>
@@ -30,7 +31,7 @@
         <div>
             <!-- <a href="{ url 'add_product' product.id %}" type="submit">Editar</a> -->
             <a href="{% url 'delete-product' product.id %}" type="submit">Excluir</a>
-            <!-- <a href="{ url 'delete-product' product.id %}" type="submit">Voltar</a> -->
+            <a href="{% url 'sell-product' product.id %}" type="submit">Dar Baixa</a>
         </div>
     </main>
     <footer class="footer">
