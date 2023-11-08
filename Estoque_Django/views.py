@@ -3,6 +3,7 @@ from .models import Products, Categories
 from random import randint
 from datetime import datetime
 from django.urls import reverse
+from django.contrib import messages
 
 
 def index(request):
@@ -14,10 +15,11 @@ def index(request):
         print(f"produto.nome + produto.price")
     return render(request, "pages/index.html", {"produtos": produtos})
 
+
 def search_product(request):
-    q = request.GET.get('q')
+    q = request.GET.get("q")
     produtos = Products.objects.filter(name__icontains=q)
-    return render(request, 'pages/index.html', {'produtos':produtos})
+    return render(request, "pages/index.html", {"produtos": produtos})
 
 
 def add_product(request):
@@ -70,12 +72,16 @@ def delete_product(request, id):
     product = Products.objects.get(id=id).delete()
     return redirect("home")
 
+
 def sell_product(request, id):
     product = Products.objects.get(id=id)
-    product.qtd -= 1
-    product.save()
-    return redirect("product-detail, id")
-
+    if int(product.qtd) == 0:
+        messages.success(request, "Este produto não possui estoque!")
+    else:
+        product.qtd -= 1
+        product.save()
+        messages.success(request, "Produto vendido com sucesso!")
+    return redirect("product-detail", id=id)
 
 
 # def cancel_product():
