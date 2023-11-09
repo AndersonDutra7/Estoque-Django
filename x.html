@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+</head>
+<body>
+<input type="button" value="Send Email" onclick="sendEmail()">
+<script>
+
+function sendEmail() {
+Email.send({
+    Host : "smtp.mailslurp.com",
+    Username : "andersonrdutra7@gmail.com",
+    Password : "vnzqptxitobgtsuw",
+    To : 'andersonrdutra7@gmail.com',
+    From : "andersonrdutra7@gmail.com",
+    Subject : "Test email",
+    Body : "<html><h2>Header</h2><strong>Bold text</strong><br></br><em>Italic</em></html>"
+}).then(message => alert(message)
+);
+}
+</script>
+</body>
+</html>

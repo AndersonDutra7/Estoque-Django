@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="{% static 'css/global.css' %}">
 </head>
 <body>
-    <header>
+    <h1>{{user}}</h1>
+    <header>    
         <nav class="navbar">
             <h1>GRÊMIO DJANGO</h1>
             <form role="search" action="{% url 'search-product' %}">
@@ -44,7 +45,9 @@
                     {% endfor %}
                 </tbody>    
             </table>
+            {% if user.is_authenticated %}
             <a class="add-button" href="{% url 'add-product' %}" type="submit">Add Produto</a>
+            {% endif %}
         </section>
     </main>
     <footer class="footer">
