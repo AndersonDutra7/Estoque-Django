@@ -1,0 +1,74 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.login-container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+}
+
+.login-logo {
+    background-image: url("../../../media/icone-gremio.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 2%;
+    text-align: center;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+form input{
+    padding: 10px 10px;
+    border-radius: 10px;
+    margin: 0 50px;
+    width: 300px;
+}
+
+button{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    box-shadow: 0px 0px 0px 2px #9fb4f2;
+    background: linear-gradient(to bottom, #0074D9, #001F3F);
+    border-radius:10px;
+    border:1px solid #4e6096;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-size:16px;
+    padding:12px 37px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #283966;
+}
+
+.login-registro {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.login-registro a {
+    text-decoration: none;
+    color: rgb(8, 30, 53);
+}
+
+.login-registro a:hover {
+    text-decoration: underline;
+    color: #283966;
+}
