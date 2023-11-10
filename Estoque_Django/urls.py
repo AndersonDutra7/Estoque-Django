@@ -1,3 +1,5 @@
+from django.conf import settings
+from django.conf.urls.static import static
 from django.urls import path
 from . import views
 
@@ -9,3 +11,7 @@ urlpatterns = [
     path("sell-product/<int:id>/", views.sell_product, name="sell-product"),
     path("product-detail/<int:id>/", views.product_detail, name="product-detail"),
 ]
+
+# Adicione as seguintes linhas para lidar com arquivos de mídia em desenvolvimento
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

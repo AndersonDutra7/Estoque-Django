@@ -19,16 +19,16 @@
     </header>
     <main>
         <div class="login-container">
-            <div class="login-logo">
-            </div>
-            <h3>Crie sua conta! É Grátis!</h3>
-            <form class="login-form">
-                <input type="text" placeholder="Nome" class="login-input">
-                <input type="email" placeholder="Email" class="login-input">
+            <form class="login-form" method="POST"> {% csrf_token %}
+                <div class="login-logo">
+                </div>
+                <h3>Crie sua conta! É Grátis!</h3>
+                <input type="text" placeholder="Nome" class="login-input" name="username">
+                <input type="email" placeholder="Email" class="login-input" name="email">
                 <h3>Cadastre sua senha.</h3>
                 <p>Use letras, números e caracteres especiais.</p>
-                <input type="password" placeholder="Senha" class="login-input">
-                <input type="password" placeholder="Confirmar Senha" class="login-input">
+                <input type="password" placeholder="Senha" class="login-input" name="password">
+                <input type="password" placeholder="Confirmar Senha" class="login-input" name="repeat-password">
                 <button type="submit" class="btn-login">Acessar</button>
             </form>
             <p class="login-registro">Já possui conta? <a href="{% url 'login' %}">Entrar</a></p>

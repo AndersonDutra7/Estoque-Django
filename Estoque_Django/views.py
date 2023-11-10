@@ -4,8 +4,9 @@ from random import randint
 from datetime import datetime
 from django.urls import reverse
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required 
 
-
+@login_required(redirect_field_name='login')
 def index(request):
     # from Products select *
     produtos = Products.objects.all().order_by("cod")
@@ -33,7 +34,7 @@ def add_product(request):
                 unique_cod = True
 
         category = request.POST["category"]
-        picture = request.FILES.get("picture")
+        picture = request.FILES.get("imagem")
         price = request.POST["price"].replace(",", ".")
         description = request.POST.get("description")
         qtd = request.POST["qtd"]

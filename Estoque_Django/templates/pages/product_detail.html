@@ -18,7 +18,11 @@
     </header>
     <main>
         <div class="card">
-            <img src="{{ product.picture.url}}" alt="Camisa Grêmio">
+            {% if product.picture %}
+                <img src="{{ product.picture.url }}" alt="{{ product.name }}">
+            {% else %}
+                <p>Nenhuma imagem disponível</p>
+            {% endif %}
             <div class="card-content">
                 <h2>Desrição: {{ product.name }}</h2>
                 <p>Código: {{ product.cod }}</p>

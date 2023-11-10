@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import auth, messages
+from django.contrib.auth.models import User
 
 
 def user_login(request):
@@ -22,4 +23,15 @@ def user_login(request):
 
 
 def register(request):
-    return (request, "pages/register.html")
+    if request.method == 'POST':
+        user = request.POST.get('username')
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+        passwordConfirm = request.POST.get('passwordConfirm')
+
+        User.objects.create_user(username=user, email=email, password=password) #cliente
+        # User.objects.create_superuser(username=user, email=email, password=password) #administrador
+        return redirect('login')
+
+    else:
+        return render(request, "pages/register.html")
