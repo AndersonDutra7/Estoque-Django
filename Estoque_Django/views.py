@@ -9,7 +9,7 @@ from django.contrib.auth.decorators import login_required
 @login_required(redirect_field_name="login")
 def index(request):
     # from Products select *
-    produtos = Products.objects.all().order_by("cod")
+    produtos = Products.objects.filter(user_id=request.user.id).order_by("cod")
     # print(produtos)
 
     for produto in produtos:
@@ -54,6 +54,7 @@ def add_product(request):
             in_stock = False
 
         Products.objects.create(
+            user_id=request.user.id,
             name=name,
             cod=cod,
             category_id=category,

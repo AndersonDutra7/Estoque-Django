@@ -25,6 +25,7 @@
 #         return self.nome
 
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class Categories(models.Model):
@@ -39,6 +40,7 @@ class Categories(models.Model):
 
 
 class Products(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, blank=False)
     name = models.CharField(max_length=255)
     category = models.ForeignKey(Categories, on_delete=models.CASCADE)
     picture = models.ImageField(upload_to="product_images/", null=True, blank=True)
