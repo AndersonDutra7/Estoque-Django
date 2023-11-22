@@ -13,10 +13,11 @@
     <h1>{{user}}</h1>
     <header>    
         <nav class="navbar">
-            <h1>GRÊMIO DJANGO</h1>
+            <a href="{% url 'home' %}"><h1>GRÊMIO DJANGO</h1></a>
             <form role="search" action="{% url 'search-product' %}">
                 <input type="search" name="q">
                 <button type="submit">Buscar</button>
+                <button><a href="{% url 'stockless' %}" role="button">Sem Estoque</a></button>
             </form>
         </nav>
     </header>

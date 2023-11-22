@@ -2,11 +2,11 @@ from django.shortcuts import render, redirect
 from .models import Products, Categories
 from random import randint
 from datetime import datetime
-from django.urls import reverse
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required 
+from django.contrib.auth.decorators import login_required
 
-@login_required(redirect_field_name='login')
+
+@login_required(redirect_field_name="login")
 def index(request):
     # from Products select *
     produtos = Products.objects.all().order_by("cod")
@@ -17,9 +17,17 @@ def index(request):
     return render(request, "pages/index.html", {"produtos": produtos})
 
 
+def stockless(request):
+    produtos = Products.objects.filter(in_stock=False)
+    return render(request, "pages/index.html", {"produtos": produtos})
+
+
 def search_product(request):
     q = request.GET.get("q")
-    produtos = Products.objects.filter(name__icontains=q)
+    if q == "":
+        produtos = Products.objects.filter(name__icontains=q)
+    else:
+        produtos = Products.objects.filter(name__icontains=q).order_by("cod")
     return render(request, "pages/index.html", {"produtos": produtos})
 
 
@@ -77,6 +85,8 @@ def delete_product(request, id):
 def sell_product(request, id):
     product = Products.objects.get(id=id)
     if int(product.qtd) == 0:
+        product.in_stock = False
+        product.save()
         messages.success(request, "Este produto não possui estoque!")
     else:
         product.qtd -= 1
